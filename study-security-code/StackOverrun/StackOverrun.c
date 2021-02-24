@@ -4,10 +4,10 @@
 void foo(const char* input)
 {
     char buf[10];
-    printf("My stack locks like: \n%p\n%p\n%p\n%p\n%p\n% p\n\n");
+    // printf("My stack locks like: \n%p\n%p\n%p\n%p\n%p\n% p\n\n");
     strcpy(buf, input);
     printf("%s\n", buf);
-    printf("Now the stack looks like:\n%p\n%p\n%p\n%p\n%p\n%p\n\n");
+    // printf("Now the stack looks like:\n%p\n%p\n%p\n%p\n%p\n%p\n\n");
 }
 
 void bar(void)
@@ -25,7 +25,7 @@ int main( int argc, char* argv[])
         printf("please supply a string as an argument!\n");
         return -1;
     }
-    foo(argv[1]);
+    foo("hanhhanh");
     return 0;
     
 }

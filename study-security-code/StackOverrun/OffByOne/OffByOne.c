@@ -7,13 +7,10 @@ void foo(const char* in)
    
     if(strlen(in)< sizeof(buf))
     {
-        strncpy(buf,in, sizeof(buf));
-        buf[sizeof(buf)] = '\0';
-        printf("%s\n, buff");
+        strncpy(buf,in, sizeof(buf)-1);
+        buf[sizeof(buf) -1] = '\0';
+        printf("%s\n", buf);
     }
-    
-  
-
 }
 
 void bar(const char* in)
@@ -26,6 +23,7 @@ int main(int argc, char* argv[])
     if(argc != 2)
     {
         printf ("Usage is %s [string]\n", argv[0]);
+        return -1;
 
     }
     printf("Address of foo is %p, address of bar is %p\n", foo,bar);
