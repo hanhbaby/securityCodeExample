@@ -5,7 +5,7 @@
 
 #ifndef HAVE_STRLCPY
 size_t                 
-strlcpy(char       *dst,       const char *src,         size_t      size)    
+strlcpy(char *dst, const char *src,size_t  size)    
 {
   size_t    srclen;      
   size --;
@@ -24,7 +24,7 @@ strlcpy(char       *dst,       const char *src,         size_t      size)
 
 
 
-#define SIZEBUF  10
+#define SIZEBUF  16
 class BadStringBuf
 {
 private:
@@ -43,12 +43,14 @@ public:
     }
     void Init(char* buf)
     {
+        m_buf = NULL;
         m_buf = (char*)malloc(SIZEBUF);
         strlcpy(m_buf,buf, SIZEBUF);
     }
 
     void SetString(const char* input )
     {
+        m_buf = NULL;
         m_buf = (char*)malloc(SIZEBUF);
         strlcpy(m_buf,input, SIZEBUF);
     }
@@ -75,7 +77,7 @@ public:
         g_pInput = new BadStringBuf;
         buf = (char*)malloc(16);
         g_pInput->Init(buf2);
-         strcpy(buf, input1);
+        strcpy(buf, input1);
 
         g_pInput->SetString(input2);
 
